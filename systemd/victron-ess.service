@@ -1,0 +1,16 @@
+[Unit]
+Description=victron-ess (Victron Modbus Controller)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/path/to/your/repo
+EnvironmentFile=/etc/victron-ess.env
+ExecStart=/path/to/your/repo/.venv/bin/python /path/to/your/repo/ess_accu_off.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
